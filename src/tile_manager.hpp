@@ -1,8 +1,8 @@
 /*  $Id$
-**   _____                 _____          
+**   _____                 _____
 **  |   __|_ _ ___ ___ ___|_   _|_ _ _ _
-**  |__   | | | . | -_|  _| | | | | |_'_| 
-**  |_____|___|  _|___|_|   |_| |___|_,_| 
+**  |__   | | | . | -_|  _| | | | | |_'_|
+**  |_____|___|  _|___|_|   |_| |___|_,_|
 **            |_|                Portable
 **  Copyright (C) 2005 Ingo Ruhnke <grumbel@gmx.de>
 **
@@ -15,7 +15,7 @@
 **  but WITHOUT ANY WARRANTY; without even the implied warranty of
 **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 **  GNU General Public License for more details.
-** 
+**
 **  You should have received a copy of the GNU General Public License
 **  along with this program; if not, write to the Free Software
 **  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
@@ -50,7 +50,7 @@ private:
 
   /** pointer to refcount, see refcount */
   uint16_t* freelist;
- 
+
   uint16_t  next_free;
 
   Tileset* tileset;
@@ -61,7 +61,7 @@ public:
 
   /** Allocate a tile in VRAM and copy the ROM tile over to VRAM */
   uint16_t create_vram_tile(uint16_t rom_id);
-  
+
   /** Decrements the refcount and deletes \a tile from VRAM if it is
       no longer used */
   void delete_vram_tile(uint16_t vram_id);
@@ -77,5 +77,3 @@ private:
 };
 
 #endif
-
-/* EOF */

@@ -12,7 +12,7 @@
 **  but WITHOUT ANY WARRANTY; without even the implied warranty of
 **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 **  GNU General Public License for more details.
-** 
+**
 **  You should have received a copy of the GNU General Public License
 **  along with this program; if not, write to the Free Software
 **  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
@@ -35,16 +35,16 @@ private:
 public:
   Console();
   ~Console();
-  
+
   void print(const char* buf);
   void print(uint16_t num);
 
   void putchar(char c);
   void write(const char* buf, uint16_t len);
-  
+
   void moveto(uint8_t x, uint8_t y);
   void clear();
-  
+
   void scroll();
 
   inline uint16_t char2tile(char c) { return 800 - 32 + c; }
@@ -59,5 +59,3 @@ Console& operator<<(Console& c, uint16_t num);
 extern Console console;
 
 #endif
-
-/* EOF */

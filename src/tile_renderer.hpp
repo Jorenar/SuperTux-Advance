@@ -1,5 +1,5 @@
 /*  $Id$
-**  
+**
 **  SuperTux Portable
 **  Copyright (C) 2005 Ingo Ruhnke <grumbel@gmx.de>
 **
@@ -12,7 +12,7 @@
 **  but WITHOUT ANY WARRANTY; without even the implied warranty of
 **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 **  GNU General Public License for more details.
-** 
+**
 **  You should have received a copy of the GNU General Public License
 **  along with this program; if not, write to the Free Software
 **  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
@@ -43,7 +43,7 @@ private:
 
     Layer(uint8_t num)
       : vram((uint16_t*)MAP_BASE_ADR(28 + num)),
-        tilemap(0), 
+        tilemap(0),
         x_offset(0), y_offset(0)
     {}
   };
@@ -79,5 +79,3 @@ private:
 };
 
 #endif
-
-/* EOF */

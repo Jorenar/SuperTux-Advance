@@ -1,8 +1,8 @@
 /*  $Id$
-**   _____                 _____          
+**   _____                 _____
 **  |   __|_ _ ___ ___ ___|_   _|_ _ _ _
-**  |__   | | | . | -_|  _| | | | | |_'_| 
-**  |_____|___|  _|___|_|   |_| |___|_,_| 
+**  |__   | | | . | -_|  _| | | | | |_'_|
+**  |_____|___|  _|___|_|   |_| |___|_,_|
 **            |_|                Portable
 **  Copyright (C) 2005 Ingo Ruhnke <grumbel@gmx.de>
 **
@@ -15,7 +15,7 @@
 **  but WITHOUT ANY WARRANTY; without even the implied warranty of
 **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 **  GNU General Public License for more details.
-** 
+**
 **  You should have received a copy of the GNU General Public License
 **  along with this program; if not, write to the Free Software
 **  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
@@ -55,12 +55,12 @@ SpriteRenderer::update()
       if (sprite.is_enabled())
         {
           OAM[i].attr0 = OBJ_Y((sprite.get_y() - sprite.get_data().get_y_align() - y_offset) & 0xFF) | OBJ_SHAPE(0) | OBJ_256_COLOR;
-          OAM[i].attr1 = 
+          OAM[i].attr1 =
             OBJ_X((sprite.get_x() - sprite.get_data().get_x_align() - x_offset) & 0xFF) |
             OBJ_SIZE(2) |
             (sprite.get_vflip() ? OBJ_VFLIP : 0) |
             (sprite.get_hflip() ? OBJ_HFLIP : 0);
-          OAM[i].attr2 = OBJ_CHAR(sprite.get_data().get_char_addr(sprite.get_frame())) | OBJ_PALETTE(0) | OBJ_PRIORITY(0);          
+          OAM[i].attr2 = OBJ_CHAR(sprite.get_data().get_char_addr(sprite.get_frame())) | OBJ_PALETTE(0) | OBJ_PRIORITY(0);
         }
       else
         {
@@ -97,5 +97,3 @@ SpriteRenderer::create(const SpriteData& data)
   sprites[next_free] = Sprite(data);
   return &sprites[next_free++];
 }
-
-/* EOF */

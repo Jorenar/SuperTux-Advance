@@ -12,7 +12,7 @@
 **  but WITHOUT ANY WARRANTY; without even the implied warranty of
 **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 **  GNU General Public License for more details.
-** 
+**
 **  You should have received a copy of the GNU General Public License
 **  along with this program; if not, write to the Free Software
 **  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
@@ -91,7 +91,7 @@ int main(void)
 
   tile_manager  = &stack_tile_manager;
   tile_renderer = &stack_tile_renderer;
-  
+
   sprite_renderer = &stack_sprite_renderer;
   sprite_manager  = &stack_sprite_manager;
 
@@ -100,7 +100,7 @@ int main(void)
   TileMap interactive(&tileset, (uint16_t*)interactive_raw);
   TileMap background(&tileset, (uint16_t*)background_raw);
   TileMap skybox(&tileset, (uint16_t*)skybox_raw);
- 
+
   tilemap = &interactive;
 
   tile_manager->set_tileset(&tileset);
@@ -145,5 +145,3 @@ int main(void)
       vid_vsync();
     }
 }
-
-/* EOF */

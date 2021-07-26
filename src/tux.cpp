@@ -12,7 +12,7 @@
 **  but WITHOUT ANY WARRANTY; without even the implied warranty of
 **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 **  GNU General Public License for more details.
-** 
+**
 **  You should have received a copy of the GNU General Public License
 **  along with this program; if not, write to the Free Software
 **  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
@@ -40,7 +40,7 @@ Tux::Tux()
 Tux::~Tux()
 {
 }
-  
+
 void
 Tux::update()
 {
@@ -72,7 +72,7 @@ Tux::update()
           y_pos += 4;
         }
     }
-     
+
   if (keys & KEY_B)
     speed *= 2;
 
@@ -80,7 +80,7 @@ Tux::update()
     {
       y_pos -= speed*4;
     }
-   
+
   if (keys & KEY_LEFT)
     {
       x_pos -= speed;
@@ -109,5 +109,3 @@ Tux::update()
 
   sprite_renderer->set_offset(scroll_x, scroll_y);
 }
-
-/* EOF */

@@ -12,7 +12,7 @@
 **  but WITHOUT ANY WARRANTY; without even the implied warranty of
 **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 **  GNU General Public License for more details.
-** 
+**
 **  You should have received a copy of the GNU General Public License
 **  along with this program; if not, write to the Free Software
 **  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
@@ -42,7 +42,7 @@ TileRenderer::TileRenderer()
 
 TileRenderer::~TileRenderer()
 {
-  
+
 }
 
 void
@@ -81,9 +81,9 @@ TileRenderer::set_tilemap_offset(uint8_t layer_num, int16_t x_offset, int16_t y_
   int new_x_tile = x_offset/8;
   int new_y_tile = y_offset/8;
 
-  if (x_tile != new_x_tile || 
+  if (x_tile != new_x_tile ||
       y_tile != new_y_tile)
-    { 
+    {
       int start_x = Math::min(x_tile, new_x_tile);
       int start_y = Math::min(y_tile, new_y_tile);
 
@@ -114,7 +114,7 @@ TileRenderer::set_tilemap_offset(uint8_t layer_num, int16_t x_offset, int16_t y_
             tile_manager->delete_vram_tile(tile);
             tile = tile_manager->create_vram_tile(layer.tilemap->get_data()
                                                   [y * layer.tilemap->get_width() + x]);
-          }      
+          }
 
       // Horizontal refresh
       for(int y = top; y < top+32 && (y < layer.tilemap->get_height()); ++y)
@@ -125,7 +125,7 @@ TileRenderer::set_tilemap_offset(uint8_t layer_num, int16_t x_offset, int16_t y_
             tile_manager->delete_vram_tile(tile);
             tile = tile_manager->create_vram_tile(layer.tilemap->get_data()
                                                   [y * layer.tilemap->get_width() + x]);
-          }      
+          }
 
       // FIXME: The regions of vertical and horizontal refresh may
       // overlap, could be optimized further
@@ -135,7 +135,7 @@ TileRenderer::set_tilemap_offset(uint8_t layer_num, int16_t x_offset, int16_t y_
 
   layer.x_offset = x_offset;
   layer.y_offset = y_offset;
-  
+
   bg_scroll scroll;
   scroll.x = layer.x_offset;
   scroll.y = layer.y_offset;
@@ -162,7 +162,7 @@ TileRenderer::copy_tilemap(uint8_t layer_num)
         uint16_t& tile = layer.vram[(y%32) * 32 + (x%32)];
         tile_manager->delete_vram_tile(tile);
         tile = tile_manager->create_vram_tile(layer.tilemap->get_data()
-                                              [(y) * layer.tilemap->get_width() 
+                                              [(y) * layer.tilemap->get_width()
                                                + (x)]);
       }
 }
@@ -173,5 +173,3 @@ TileRenderer::set_palette(const void* pal)
   for(uint16_t i = 0; i < 256; ++i)
     BG_COLORS[i] = ((u16*)pal)[i];
 }
-
-/* EOF */

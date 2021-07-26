@@ -1,9 +1,9 @@
-//       _________ __                 __                               
+//       _________ __                 __
 //      /   _____//  |_____________ _/  |______     ____  __ __  ______
 //      \_____  \\   __\_  __ \__  \\   __\__  \   / ___\|  |  \/  ___/
 //      /        \|  |  |  | \// __ \|  |  / __ \_/ /_/  >  |  /\___ |
 //     /_______  /|__|  |__|  (____  /__| (____  /\___  /|____//____  >
-//             \/                  \/          \//_____/            \/ 
+//             \/                  \/          \//_____/            \/
 //  ______________________                           ______________________
 //			  T H E   W A R   B E G I N S
 //   Utility for Stratagus - A free fantasy real time strategy game engine
@@ -35,9 +35,9 @@
    1) You create a RGBA image in Gimp
 
    2) You convert it to indexed with 227 colors
-   
+
    [Generate Optimal Palette # Colors 227] (MAX_COLORS - 1)
-   
+
    3) You run png2stratagus on the image
 
    4) The final images will be written to out.png in the current
@@ -65,9 +65,9 @@ public:
   {
   }
 
-  Color (int r, int g, int b) 
+  Color (int r, int g, int b)
     : red (r), green (g), blue (b)
-  {    
+  {
   }
 };
 
@@ -79,10 +79,10 @@ private:
   int m_transcol;
   std::vector<unsigned char> m_image;
   std::vector<Color> m_palette;
-  
+
 public:
   /** Load an image from a given png source */
-  Image (const std::string& filename) 
+  Image (const std::string& filename)
   {
     FILE* fp;
     png_structp png_ptr;
@@ -113,7 +113,7 @@ public:
       row_pointers[i] = new png_byte[row_bytes];
 
     png_read_image(png_ptr, row_pointers);
-    
+
     if (color_type != PNG_COLOR_TYPE_PALETTE)
 	{
 	  std::cout << "Unsupported color type" << std::endl;
@@ -147,7 +147,7 @@ public:
 
     for (int i = 0; i < num_trans; i++)
       std::cout << "transcolor: " << int(trans[i]) << std::endl;
-    
+
     m_width = pwidth;
     m_height = pheight;
 
@@ -175,8 +175,8 @@ public:
     png_destroy_read_struct(&png_ptr, &info_ptr, (png_infopp)NULL);
     fclose (fp);
   }
-  
-  ~Image () 
+
+  ~Image ()
   {
   }
 
@@ -195,7 +195,7 @@ public:
   void write_palette(const std::string& filename)
   {
     std::ofstream out(filename.c_str());
-    out.write(reinterpret_cast<char*>(&*m_palette.begin()), m_palette.size()); 
+    out.write(reinterpret_cast<char*>(&*m_palette.begin()), m_palette.size());
   }
 
   void write_image(const std::string& filename)
@@ -232,7 +232,7 @@ public:
   int get_transcolor () {
     return m_transcol;
   }
-  
+
   int num_colors () {
     return m_palette.size ();
   }
@@ -240,7 +240,7 @@ public:
   int get_width () {
     return m_width;
   }
-  
+
   int get_height () {
     return m_height;
   }
@@ -263,5 +263,3 @@ int main (int argc, char* argv[])
       image.write_image(std::string(argv[2]) + "_img.raw");
     }
 }
-
-// EOF //

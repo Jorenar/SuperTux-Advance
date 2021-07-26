@@ -7,5 +7,3 @@ SuperTux Portable Todo
 - implement collision info loading
 - implement sprite handling
 - fix makefiles to handle levels and such directly without renaming to .raw
-
-# EOF #

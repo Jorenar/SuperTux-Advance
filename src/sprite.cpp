@@ -1,5 +1,5 @@
 /*  $Id$
-**  
+**
 **  SuperTux Portable
 **  Copyright (C) 2005 Ingo Ruhnke <grumbel@gmx.de>
 **
@@ -12,7 +12,7 @@
 **  but WITHOUT ANY WARRANTY; without even the implied warranty of
 **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 **  GNU General Public License for more details.
-** 
+**
 **  You should have received a copy of the GNU General Public License
 **  along with this program; if not, write to the Free Software
 **  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
@@ -29,7 +29,7 @@ Sprite::Sprite()
 Sprite::Sprite(const SpriteData& data_)
   : enabled(true), data(data_), x(0), y(0), world_co(true), hflip(false), vflip(false)
 {
- 
+
 }
 
 void
@@ -45,5 +45,3 @@ Sprite::update()
   frame += 1;
   frame %= data.get_frames();
 }
-
-/* EOF */

@@ -1,8 +1,8 @@
 /*  $Id$
-**   _____                 _____          
+**   _____                 _____
 **  |   __|_ _ ___ ___ ___|_   _|_ _ _ _
-**  |__   | | | . | -_|  _| | | | | |_'_| 
-**  |_____|___|  _|___|_|   |_| |___|_,_| 
+**  |__   | | | . | -_|  _| | | | | |_'_|
+**  |_____|___|  _|___|_|   |_| |___|_,_|
 **            |_|                Portable
 **  Copyright (C) 2005 Ingo Ruhnke <grumbel@gmx.de>
 **
@@ -15,7 +15,7 @@
 **  but WITHOUT ANY WARRANTY; without even the implied warranty of
 **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 **  GNU General Public License for more details.
-** 
+**
 **  You should have received a copy of the GNU General Public License
 **  along with this program; if not, write to the Free Software
 **  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
@@ -68,7 +68,7 @@ TileManager::TileManager()
 
 TileManager::~TileManager()
 {
-  
+
 }
 
 uint16_t
@@ -88,13 +88,13 @@ TileManager::create_vram_tile(uint16_t rom_id)
           console << "Out of Tilespace for: " << rom_id << "\n";
           return 0;
         }
-      else 
-        {    
+      else
+        {
           uint16_t vram_id = next_free;
 
           rom2vram[rom_id]  = vram_id;
           vram2rom[vram_id] = rom_id;
-     
+
           next_free = freelist[vram_id];
 
           refcount[vram_id] = 1;
@@ -110,7 +110,7 @@ TileManager::create_vram_tile(uint16_t rom_id)
       refcount[rom_id] += 1;
       return rom2vram[rom_id];
     }
-#else 
+#else
   // Simple 1:1 mapping from rom to ram
   return rom_id % MAX_VRAM_ID;
 #endif
@@ -150,5 +150,3 @@ TileManager::set_tileset(Tileset* tileset_)
 {
   tileset = tileset_;
 }
-
-/* EOF */

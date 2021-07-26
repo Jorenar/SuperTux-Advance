@@ -1,5 +1,5 @@
 /*  $Id$
-**  
+**
 **  SuperTux Portable
 **  Copyright (C) 2005 Ingo Ruhnke <grumbel@gmx.de>
 **
@@ -12,7 +12,7 @@
 **  but WITHOUT ANY WARRANTY; without even the implied warranty of
 **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 **  GNU General Public License for more details.
-** 
+**
 **  You should have received a copy of the GNU General Public License
 **  along with this program; if not, write to the Free Software
 **  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
@@ -40,7 +40,7 @@ public:
   uint8_t cos(uint8_t angle);
 
   template<class T>
-  static T min (const T& a, const T& b) 
+  static T min (const T& a, const T& b)
   {
     if (a < b)
       return a;
@@ -48,8 +48,8 @@ public:
       return b;
   }
 
-  template<class T> 
-  static T max (const T& a, const T& b) 
+  template<class T>
+  static T max (const T& a, const T& b)
   {
     if (a > b)
       return a;
@@ -57,8 +57,8 @@ public:
       return b;
   }
 
-  template<class T> 
-  static T mid (const T& a, const T& b, const T& c) 
+  template<class T>
+  static T mid (const T& a, const T& b, const T& c)
   {
     return max<T>((a), min<T>((b), (c)));
   }
@@ -67,5 +67,3 @@ public:
 extern Math math;
 
 #endif
-
-/* EOF */

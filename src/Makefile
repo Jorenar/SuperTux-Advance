@@ -3,5 +3,3 @@ all:
 
 clean:
 	$(MAKE) -C .. clean
-
-# EOF #
