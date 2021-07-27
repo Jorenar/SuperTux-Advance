@@ -21,39 +21,25 @@
 
 #include "layer.hpp"
 
-Layer::Layer(uint8_t number)
+Layer::Layer(uint8_t number) {}
+
+Layer::~Layer() {}
+
+bool Layer::is_enabled()
 {
+    return false;
 }
 
-Layer::~Layer()
+void Layer::enable(bool t) {}
+
+void Layer::set_tileset(Tileset* tileset_)
 {
+    tileset = tileset_;
 }
 
-bool
-Layer::is_enabled()
+void Layer::set_tilemap(TileMap* tilemap_)
 {
-  return false;
+    tilemap = tilemap_;
 }
 
-void
-Layer::enable(bool t)
-{
-}
-
-void
-Layer::set_tileset(Tileset* tileset_)
-{
-  tileset = tileset_;
-}
-
-void
-Layer::set_tilemap(TileMap* tilemap_)
-{
-  tilemap = tilemap_;
-}
-
-void
-Layer::set_mosaic(bool t)
-{
-
-}
+void Layer::set_mosaic(bool t) {}

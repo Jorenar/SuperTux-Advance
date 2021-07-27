@@ -1,6 +1,3 @@
-SuperTux Portable Todo
-======================
-
 - create a proper palette layout
 - implement delta-refresh for TileRenderer
 - fix dynamic tile allocation

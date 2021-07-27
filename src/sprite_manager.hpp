@@ -31,16 +31,15 @@
     code is in SpriteRenderer and will be refactored into this one
     later on
  */
-class SpriteManager
-{
+class SpriteManager {
 private:
 public:
-  SpriteManager();
-  ~SpriteManager();
+    SpriteManager();
+    ~SpriteManager();
 
 private:
-  SpriteManager (const SpriteManager&);
-  SpriteManager& operator= (const SpriteManager&);
+    SpriteManager(const SpriteManager&);
+    SpriteManager& operator =(const SpriteManager&);
 };
 
 #endif

@@ -25,31 +25,31 @@
 #include "sprite.hpp"
 
 /** */
-class SpriteRenderer
-{
+class SpriteRenderer {
 private:
-  Sprite sprites[128];
+    Sprite sprites[128];
 
-  int next_free;
-  int x_offset;
-  int y_offset;
+    int next_free;
+    int x_offset;
+    int y_offset;
 
 public:
-  SpriteRenderer();
-  ~SpriteRenderer();
+    SpriteRenderer();
+    ~SpriteRenderer();
 
-  void set_palette(const void* pal);
-  void update();
+    void set_palette(const void* pal);
+    void update();
 
-  Sprite* create(const SpriteData& data);
+    Sprite* create(const SpriteData& data);
 
-  /** Uploads a raw image of size 128x256 to the VRAM */
-  void upload(uint16_t* data);
+    /** Uploads a raw image of size 128x256 to the VRAM */
+    void upload(uint16_t* data);
 
-  void set_offset(int x, int y);
+    void set_offset(int x, int y);
+
 private:
-  SpriteRenderer (const SpriteRenderer&);
-  SpriteRenderer& operator= (const SpriteRenderer&);
+    SpriteRenderer(const SpriteRenderer&);
+    SpriteRenderer& operator =(const SpriteRenderer&);
 };
 
 #endif

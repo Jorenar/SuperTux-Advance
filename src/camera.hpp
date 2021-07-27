@@ -26,18 +26,14 @@
 #define HEADER_CAMERA_HPP
 
 /** Class for handling scrolling parameter */
-class Camera
-{
-private:
+class Camera {
 public:
-  Camera();
-  ~Camera();
-
-
+    Camera();
+    ~Camera();
 
 private:
-  Camera (const Camera&);
-  Camera& operator= (const Camera&);
+    Camera(const Camera&);
+    Camera& operator =(const Camera&);
 };
 
 #endif

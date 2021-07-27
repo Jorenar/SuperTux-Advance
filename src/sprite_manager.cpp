@@ -26,10 +26,6 @@
 #include "gba_video.h"
 #include "sprite_manager.hpp"
 
-SpriteManager::SpriteManager()
-{
-}
+SpriteManager::SpriteManager() {}
 
-SpriteManager::~SpriteManager()
-{
-}
+SpriteManager::~SpriteManager() {}

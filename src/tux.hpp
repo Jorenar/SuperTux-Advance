@@ -27,32 +27,31 @@
 class Sprite;
 
 /** */
-class Tux
-{
+class Tux {
 private:
-  Sprite* sprite;
+    Sprite* sprite;
 
-  // Contacts which handle Tuxs movement/collision detection on the
-  // tilemap
-  Contact*      contact;
-  GroundContact ground_contact;
-  AirContact    air_contact;
+    // Contacts which handle Tuxs movement/collision detection on the
+    // tilemap
+    Contact*      contact;
+    GroundContact ground_contact;
+    AirContact air_contact;
 
-  int x_pos;
-  int y_pos;
+    int x_pos;
+    int y_pos;
 
-  int16_t scroll_x;
-  int16_t scroll_y;
+    int16_t scroll_x;
+    int16_t scroll_y;
 
 public:
-  Tux();
-  ~Tux();
+    Tux();
+    ~Tux();
 
-  void update();
+    void update();
 
 private:
-  Tux (const Tux&);
-  Tux& operator= (const Tux&);
+    Tux(const Tux&);
+    Tux& operator =(const Tux&);
 };
 
 #endif

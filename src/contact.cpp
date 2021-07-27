@@ -24,27 +24,12 @@
 
 #include "contact.hpp"
 
-Contact::Contact()
-  : x_pos(0), y_pos(0)
-{
-}
+Contact::Contact() : x_pos(0), y_pos(0) {}
 
-GroundContact::GroundContact()
-{
+GroundContact::GroundContact() {}
 
-}
+void GroundContact::set_pos(int x, int y) {}
 
-void
-GroundContact::set_pos(int x, int y)
-{
-}
+AirContact::AirContact() {}
 
-AirContact::AirContact()
-{
-
-}
-
-void
-AirContact::set_pos(int x, int y)
-{
-}
+void AirContact::set_pos(int x, int y) {}

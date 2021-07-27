@@ -23,38 +23,38 @@
 #define HEADER_CONSOLE_HPP
 
 /** */
-class Console
-{
+class Console {
 private:
-  uint16_t* screen;
-  uint8_t x_pos;
-  uint8_t y_pos;
-  uint8_t width;
-  uint8_t height;
+    uint16_t* screen;
+    uint8_t x_pos;
+    uint8_t y_pos;
+    uint8_t width;
+    uint8_t height;
 
 public:
-  Console();
-  ~Console();
+    Console();
+    ~Console();
 
-  void print(const char* buf);
-  void print(uint16_t num);
+    void print(const char* buf);
+    void print(uint16_t num);
 
-  void putchar(char c);
-  void write(const char* buf, uint16_t len);
+    void putchar(char c);
+    void write(const char* buf, uint16_t len);
 
-  void moveto(uint8_t x, uint8_t y);
-  void clear();
+    void moveto(uint8_t x, uint8_t y);
+    void clear();
 
-  void scroll();
+    void scroll();
 
-  inline uint16_t char2tile(char c) { return 800 - 32 + c; }
+    inline uint16_t char2tile(char c) { return 800 - 32 + c; }
+
 private:
-  Console (const Console&);
-  Console& operator= (const Console&);
+    Console(const Console&);
+    Console& operator =(const Console&);
 };
 
-Console& operator<<(Console& c, const char* buf);
-Console& operator<<(Console& c, uint16_t num);
+Console& operator <<(Console& c, const char* buf);
+Console& operator <<(Console& c, uint16_t num);
 
 extern Console console;
 

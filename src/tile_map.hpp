@@ -27,33 +27,34 @@
 class Tileset;
 
 /** */
-class TileMap
-{
+class TileMap {
 private:
-  Tileset* tileset;
+    Tileset* tileset;
 
-  /** Width of the TileMap */
-  uint16_t  width;
+    /** Width of the TileMap */
+    uint16_t width;
 
-  /** Height of the TileMap */
-  uint16_t  height;
+    /** Height of the TileMap */
+    uint16_t height;
 
-  /** Pointer to the tilemap in ROM */
-  uint16_t* tilemap;
+    /** Pointer to the tilemap in ROM */
+    uint16_t* tilemap;
 
 public:
-  TileMap(Tileset* tileset, uint16_t* raw_data);
-  ~TileMap();
+    TileMap(Tileset* tileset, uint16_t* raw_data);
+    ~TileMap();
 
-  inline uint16_t* get_data()   const { return tilemap; }
-  inline uint16_t  get_width()  const { return width; }
-  inline uint16_t  get_height() const { return height; }
+    inline uint16_t* get_data()   const { return tilemap; }
 
-  uint8_t get_colmap(int x, int y) const;
+    inline uint16_t  get_width()  const { return width; }
+
+    inline uint16_t  get_height() const { return height; }
+
+    uint8_t get_colmap(int x, int y) const;
 
 private:
-  TileMap (const TileMap&);
-  TileMap& operator= (const TileMap&);
+    TileMap(const TileMap&);
+    TileMap& operator =(const TileMap&);
 };
 
 #endif

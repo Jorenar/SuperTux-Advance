@@ -26,31 +26,28 @@
 #define HEADER_CONTACT_HPP
 
 /** */
-class Contact
-{
+class Contact {
 protected:
-  int x_pos;
-  int y_pos;
+    int x_pos;
+    int y_pos;
 
 public:
-  Contact();
-  virtual ~Contact() {}
+    Contact();
+    virtual ~Contact() {}
 
-  virtual void set_pos(int x, int y) =0;
+    virtual void set_pos(int x, int y) = 0;
 };
 
-class GroundContact : public Contact
-{
+class GroundContact : public Contact {
 public:
-  GroundContact();
-  void set_pos(int x, int y);
+    GroundContact();
+    void set_pos(int x, int y);
 };
 
-class AirContact : public Contact
-{
+class AirContact : public Contact {
 public:
-  AirContact();
-  void set_pos(int x, int y);
+    AirContact();
+    void set_pos(int x, int y);
 };
 
 #endif

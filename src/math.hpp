@@ -25,43 +25,47 @@
 #include "types.hpp"
 
 /** */
-class Math
-{
+class Math {
 private:
-  uint8_t sin_table[256];
+    uint8_t sin_table[256];
 
 public:
-  Math();
-  ~Math();
+    Math();
+    ~Math();
 
-  // FIXME: This is *NOT* real sin/cos at the moment, just something
-  // to get the effect done
-  uint8_t sin(uint8_t angle);
-  uint8_t cos(uint8_t angle);
+    // FIXME: This is *NOT* real sin/cos at the moment, just something
+    // to get the effect done
+    uint8_t sin(uint8_t angle);
+    uint8_t cos(uint8_t angle);
 
-  template<class T>
-  static T min (const T& a, const T& b)
-  {
-    if (a < b)
-      return a;
-    else
-      return b;
-  }
+    template<class T>
+    static T min (const T& a, const T& b)
+    {
+        if (a < b) {
+            return a;
+        }
+        else {
+            return b;
+        }
+    }
 
-  template<class T>
-  static T max (const T& a, const T& b)
-  {
-    if (a > b)
-      return a;
-    else
-      return b;
-  }
+    template<class T>
+    static T max (const T& a, const T& b)
+    {
+        if (a > b) {
+            return a;
+        }
+        else {
+            return b;
+        }
+    }
 
-  template<class T>
-  static T mid (const T& a, const T& b, const T& c)
-  {
-    return max<T>((a), min<T>((b), (c)));
-  }
+    template<class T>
+    static T mid (const T& a, const T& b, const T& c)
+    {
+        return max<T>((a), min<T>((b), (c)));
+    }
+
 };
 
 extern Math math;

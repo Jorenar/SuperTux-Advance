@@ -27,27 +27,26 @@ class Tileset;
 class TileMap;
 
 /** */
-class Layer
-{
+class Layer {
 private:
-  /** Which hardware layer are we representing? */
-  uint8_t  number;
-  Tileset* tileset;
-  TileMap* tilemap;
+    /** Which hardware layer are we representing? */
+    uint8_t number;
+    Tileset* tileset;
+    TileMap* tilemap;
 
 public:
-  Layer(uint8_t number_);
-  ~Layer();
+    Layer(uint8_t number_);
+    ~Layer();
 
-  bool is_enabled();
-  void enable(bool t);
+    bool is_enabled();
+    void enable(bool t);
 
-  void set_tileset(Tileset* tileset);
-  void set_tilemap(TileMap* tilemap);
+    void set_tileset(Tileset* tileset);
+    void set_tilemap(TileMap* tilemap);
 
-  void set_mosaic(bool t);
+    void set_mosaic(bool t);
 
-  //void set_blend();
+    // void set_blend();
 };
 
 #endif
