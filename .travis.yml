@@ -1,0 +1,10 @@
+language: cpp
+
+services:
+  - docker
+
+install:
+  - docker pull devkitpro/devkitarm
+
+script:
+  - docker run -v $(pwd):/project -it devkitpro/devkitarm sh -c "cd /project && make"
