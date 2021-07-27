@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "types.hpp"
+#include <stdint.h>
 
 class Tileset;
 

@@ -8,8 +8,6 @@
 #include <gba_sprites.h>
 #include <gba_video.h>
 
-#include "types.hpp"
-
 SpriteRenderer::SpriteRenderer() : next_free(0) {}
 
 SpriteRenderer::~SpriteRenderer() {}

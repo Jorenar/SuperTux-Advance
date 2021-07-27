@@ -5,8 +5,9 @@
 
 #pragma once
 
+#include <stdint.h>
+
 #include "sprite_data.hpp"
-#include "types.hpp"
 
 extern SpriteData tux_sprite_data;
 extern SpriteData mriceblock_sprite_data;

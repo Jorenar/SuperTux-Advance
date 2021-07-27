@@ -7,8 +7,6 @@
 
 #include <gba_video.h>
 
-#include "types.hpp"
-
 Console console;
 
 Console::Console() :

@@ -6,7 +6,6 @@
 #pragma once
 
 #include "sprite_data.hpp"
-#include "types.hpp"
 
 /** */
 class Sprite {

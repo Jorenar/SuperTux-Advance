@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "types.hpp"
+#include <stdint.h>
 
 /** Handles a tileset in ROM */
 class Tileset {

@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "types.hpp"
+#include <stdint.h>
 
 /** */
 class Math {
@@ -22,29 +22,19 @@ public:
     uint8_t cos(uint8_t angle);
 
     template<class T>
-    static T min (const T& a, const T& b)
+    static T min(const T& a, const T& b)
     {
-        if (a < b) {
-            return a;
-        }
-        else {
-            return b;
-        }
+        return a < b ? a : b;
     }
 
     template<class T>
-    static T max (const T& a, const T& b)
+    static T max(const T& a, const T& b)
     {
-        if (a > b) {
-            return a;
-        }
-        else {
-            return b;
-        }
+        return a > b ? a : b;
     }
 
     template<class T>
-    static T mid (const T& a, const T& b, const T& c)
+    static T mid(const T& a, const T& b, const T& c)
     {
         return max<T>((a), min<T>((b), (c)));
     }

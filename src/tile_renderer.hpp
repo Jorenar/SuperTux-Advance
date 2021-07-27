@@ -5,9 +5,10 @@
 
 #pragma once
 
+#include <stdint.h>
+
 #include <gba_video.h>
 
-#include "types.hpp"
 #include "tile_manager.hpp"
 
 class Tileset;
