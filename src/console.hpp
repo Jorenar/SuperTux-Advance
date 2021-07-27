@@ -6,6 +6,8 @@
 #ifndef HEADER_CONSOLE_HPP
 #define HEADER_CONSOLE_HPP
 
+#include <stdint.h>
+
 /** */
 class Console {
 private:

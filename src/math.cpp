@@ -3,8 +3,9 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#include <math.h>
 #include "math.hpp"
+
+#include <math.h>
 
 Math math;
 

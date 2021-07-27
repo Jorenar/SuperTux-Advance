@@ -6,7 +6,7 @@
 #ifndef HEADER_TYPES_HPP
 #define HEADER_TYPES_HPP
 
-#include "gba_types.h"
+#include <gba_types.h>
 
 typedef u8  uint8_t;
 typedef u16 uint16_t;

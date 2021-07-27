@@ -3,8 +3,9 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#include "sprite_data.hpp"
 #include "data.hpp"
+
+#include "sprite_data.hpp"
 
 //                                         w, h, align, fps, frames, frames...
 uint16_t tux_sprite_rawdata[]        = { 4, 4, 16,32,  6,     6,   0,0,  4,0,  8,0,  12,0,  0,4,  4,4  };

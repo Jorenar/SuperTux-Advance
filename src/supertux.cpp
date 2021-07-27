@@ -3,16 +3,16 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#include "gba_video.h"
-#include "gba_input.h"
-#include "gba_interrupt.h"
-#include "fade.h"
 #include <math.h>
+#include <stdlib.h>
+
+#include <gba_input.h>
+#include <gba_interrupt.h>
+#include <gba_video.h>
+#include <fade.h>
 
 #include "globals.hpp"
 #include "math.hpp"
-
-#include <stdlib.h>
 
 // Data for use in the game
 #include "../build/sprites_img_raw.h"
@@ -25,13 +25,13 @@
 #include "../build/background_raw.h"
 #include "../build/skybox_raw.h"
 
-#include "tileset.hpp"
-#include "tile_map.hpp"
 #include "console.hpp"
-#include "tux.hpp"
-#include "tile_renderer.hpp"
 #include "sprite_manager.hpp"
 #include "sprite_renderer.hpp"
+#include "tile_map.hpp"
+#include "tile_renderer.hpp"
+#include "tileset.hpp"
+#include "tux.hpp"
 
 unsigned int frame;
 
@@ -51,12 +51,12 @@ void vid_vsync()
 int main(void)
 {
     // Set up the interrupt handlers
-    InitInterrupt();
+    irqInit();
 
-    //SetInterrupt( Int_Vblank, VblankInterrupt);
+    // irqSet( Int_Vblank, VblankInterrupt);
 
     // Enable Vblank Interrupt to allow VblankIntrWait
-    //EnableInterrupt(Int_Vblank);
+    // irqEnable(Int_Vblank);
 
     // Allow Interrupts
     REG_IME = 1;

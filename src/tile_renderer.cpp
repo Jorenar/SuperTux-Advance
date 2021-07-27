@@ -3,16 +3,17 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
+#include "tile_renderer.hpp"
+
 #include <assert.h>
 #include <string.h>
 #include <stdlib.h>
-#include "gba_video.h"
-#include "tileset.hpp"
-#include "tile_map.hpp"
-#include "tile_renderer.hpp"
+
 #include "console.hpp"
 #include "globals.hpp"
 #include "math.hpp"
+#include "tile_map.hpp"
+#include "tileset.hpp"
 
 TileRenderer::TileRenderer()
 {

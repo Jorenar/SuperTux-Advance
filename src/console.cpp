@@ -3,10 +3,11 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#include <string.h>
-#include "gba_video.h"
-#include "types.hpp"
 #include "console.hpp"
+
+#include <gba_video.h>
+
+#include "types.hpp"
 
 Console console;
 

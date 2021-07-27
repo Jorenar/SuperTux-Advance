@@ -3,9 +3,10 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#include "gba_sprites.h"
-#include "gba_video.h"
 #include "sprite_manager.hpp"
+
+#include <gba_sprites.h>
+#include <gba_video.h>
 
 SpriteManager::SpriteManager() {}
 

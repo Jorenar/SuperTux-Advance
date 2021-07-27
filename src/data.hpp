@@ -6,6 +6,7 @@
 #ifndef HEADER_DATA_HPP
 #define HEADER_DATA_HPP
 
+#include "sprite_data.hpp"
 #include "types.hpp"
 
 extern SpriteData tux_sprite_data;

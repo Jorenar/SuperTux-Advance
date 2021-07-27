@@ -6,6 +6,8 @@
 #ifndef HEADER_TILE_RENDERER_HPP
 #define HEADER_TILE_RENDERER_HPP
 
+#include <gba_video.h>
+
 #include "types.hpp"
 #include "tile_manager.hpp"
 

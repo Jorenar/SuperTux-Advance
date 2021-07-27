@@ -3,15 +3,17 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#include "gba_input.h"
-#include "gba_video.h"
+#include "tux.hpp"
+
+#include <gba_input.h>
+#include <gba_video.h>
+
+#include "console.hpp"
+#include "data.hpp"
 #include "globals.hpp"
 #include "sprite_renderer.hpp"
-#include "data.hpp"
-#include "tile_renderer.hpp"
-#include "tux.hpp"
 #include "tile_map.hpp"
-#include "console.hpp"
+#include "tile_renderer.hpp"
 
 Tux::Tux() :
     sprite(sprite_renderer->create(tux_sprite_data)),

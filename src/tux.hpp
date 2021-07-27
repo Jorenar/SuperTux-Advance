@@ -6,6 +6,8 @@
 #ifndef HEADER_TUX_HPP
 #define HEADER_TUX_HPP
 
+#include <stdint.h>
+
 #include "contact.hpp"
 
 class Sprite;

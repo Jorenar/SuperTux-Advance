@@ -3,9 +3,11 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#include "gba_video.h"
-#include "tileset.hpp"
 #include "tile_manager.hpp"
+
+#include <gba_video.h>
+
+#include "tileset.hpp"
 #include "console.hpp"
 
 #include "../build/font_img_raw.h"

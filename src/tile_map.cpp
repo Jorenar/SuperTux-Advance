@@ -3,8 +3,9 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#include "tileset.hpp"
 #include "tile_map.hpp"
+
+#include "tileset.hpp"
 
 TileMap::TileMap(Tileset* tileset_, uint16_t* raw_data) :
     tileset(tileset_),
