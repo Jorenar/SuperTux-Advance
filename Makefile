@@ -1,46 +1,43 @@
-# Clear the implicit built in rules
 .SUFFIXES:
 
-#------------------------------------------------------------------------------
 ifeq ($(strip $(DEVKITARM)),)
-$(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM)
+$(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM")
 endif
 
 include $(DEVKITARM)/gba_rules
 
-# canned command sequence for binary data
-define bin2o
-	bin2s $< | $(AS) $(ARCH) -o $(@)
-	echo "extern const u8" `(echo $(<F) | sed -e 's/^\([0-9]\)/_\1/' | tr . _)`"_end[];" > `(echo $(<F) | tr . _)`.h
-	echo "extern const u8" `(echo $(<F) | sed -e 's/^\([0-9]\)/_\1/' | tr . _)`"[];" >> `(echo $(<F) | tr . _)`.h
-	echo "extern const u32" `(echo $(<F) | sed -e 's/^\([0-9]\)/_\1/' | tr . _)`_size";" >> `(echo $(<F) | tr . _)`.h
-endef
-
 #------------------------------------------------------------------------------
-# TARGET is the name of the output, if this ends with _mb a multiboot image is generated
+# TARGET is the name of the output
 # BUILD is the directory where object files & intermediate files will be placed
 # SOURCES is a list of directories containing source code
-# DATA is a list of directories containing data files
 # INCLUDES is a list of directories containing extra header files
-#------------------------------------------------------------------------------
+# DATA is a list of directories containing binary data
+# MUSIC
+# GRAPHICS is a list of directories containing files to be processed by grit
+#---------------------------------------------------------------------------------
 TARGET   := supertux
-BUILD    := build
-SOURCES  := src
-DATA     := data
+BUILD	 := build
+SOURCES	 := src
 INCLUDES :=
+DATA	 := data
+MUSIC	 :=
+GRAPHICS :=
 
 # options for code generation {{{
 ARCH     := -mthumb -mthumb-interwork
-CFLAGS   := -g -Wall -O3 \
-            -mcpu=arm7tdmi -mtune=arm7tdmi \
-            -fomit-frame-pointer \
-            -ffast-math \
-            $(ARCH) \
-            $(INCLUDE)
 
-CXXFLAGS := $(CFLAGS)
-ASFLAGS  := $(ARCH)
-LDFLAGS   = -g $(ARCH) -Wl,-Map,$(notdir $@).map
+CFLAGS   := -g -Wall -O2                   \
+            -mcpu=arm7tdmi -mtune=arm7tdmi \
+            -fomit-frame-pointer           \
+            -ffast-math                    \
+            $(ARCH)
+
+CFLAGS   += $(INCLUDE)
+
+CXXFLAGS := $(CFLAGS) -fno-rtti -fno-exceptions
+
+ASFLAGS  := -g $(ARCH)
+LDFLAGS   = -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
 # }}}
 
@@ -55,28 +52,33 @@ LIBDIRS := $(LIBGBA)
 ifneq ($(BUILD),$(notdir $(CURDIR)))
 
 export OUTPUT  := $(CURDIR)/$(TARGET)
-export VPATH   := $(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) \
-                  $(foreach dir,$(DATA),$(CURDIR)/$(dir))
+export VPATH   := $(foreach dir,$(SOURCES),$(CURDIR)/$(dir))  \
+                  $(foreach dir,$(DATA),$(CURDIR)/$(dir))     \
+                  $(foreach dir,$(GRAPHICS),$(CURDIR)/$(dir))
 export DEPSDIR := $(CURDIR)/$(BUILD)
 
-# automatically build a list of object files for our project
-CFILES   := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
+CFILES	 := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
 CPPFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp)))
-SFILES   := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
-RAWFILES := $(foreach dir,$(DATA),   $(notdir $(wildcard $(dir)/*.raw)))
+SFILES	 := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
+BINFILES := $(foreach dir,$(DATA),   $(notdir $(wildcard $(dir)/*.bin)))
 
-export OFILES := $(RAWFILES:.raw=.o) $(CPPFILES:.cpp=.o) $(CFILES:.c=.o) $(SFILES:.s=.o)
+ifneq ($(strip $(MUSIC)),)
+	export AUDIOFILES := $(foreach dir,$(notdir $(wildcard $(MUSIC)/*.*)),$(CURDIR)/$(MUSIC)/$(dir))
+	BINFILES += soundbank.bin
+endif
 
-# use CXX for linking C++ projects
 export LD := $(CXX)
 
-# build a list of include paths
-export INCLUDE := $(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
+export OFILES_BIN     := $(addsuffix .o,$(BINFILES))
+export OFILES_SOURCES := $(CPPFILES:.cpp=.o) $(CFILES:.c=.o) $(SFILES:.s=.o)
+export OFILES         := $(OFILES_BIN) $(OFILES_SOURCES)
+export HFILES         := $(addsuffix .h,$(subst .,_,$(BINFILES)))
+
+export INCLUDE := $(foreach dir,$(INCLUDES),-iquote $(CURDIR)/$(dir)) \
                   $(foreach dir,$(LIBDIRS),-I$(dir)/include) \
                   -I$(CURDIR)/$(BUILD)
 
-# build a list of library paths
-export LIBPATHS := $(foreach dir,$(LIBDIRS),-L$(dir)/lib)
+export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib)
 
 #------------------------------------------------------------------------------
 
@@ -86,24 +88,27 @@ $(BUILD):
 	@[ -d $@ ] || mkdir -p $@
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
-all : $(BUILD)
-
 clean:
 	@echo clean ...
 	@rm -fr $(BUILD) $(TARGET).elf $(TARGET).gba
 
 else
 
-DEPENDS := $(OFILES:.o=.d)
-
 $(OUTPUT).gba: $(OUTPUT).elf
 
 $(OUTPUT).elf: $(OFILES)
 
-%.o: %.raw
+$(OFILES_SOURCES): $(HFILES)
+
+
+soundbank.bin soundbank.h : $(AUDIOFILES)
+	@mmutil $^ -osoundbank.bin -hsoundbank.h
+
+# This rule links in binary data with the .bin extension
+%.bin.o	%_bin.h : %.bin
 	@echo $(notdir $<)
 	@$(bin2o)
 
--include $(DEPENDS)
+-include $(DEPSDIR)/*.d
 
 endif

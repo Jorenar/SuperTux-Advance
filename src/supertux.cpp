@@ -15,15 +15,15 @@
 #include "math.hpp"
 
 // Data for use in the game
-#include "../build/sprites_img_raw.h"
-#include "../build/sprites_pal_raw.h"
+#include "../build/sprites_img_bin.h"
+#include "../build/sprites_pal_bin.h"
 
-#include "../build/antarctica_img_raw.h"
-#include "../build/antarctica_pal_raw.h"
-#include "../build/interactive_raw.h"
-#include "../build/colmap_raw.h"
-#include "../build/background_raw.h"
-#include "../build/skybox_raw.h"
+#include "../build/antarctica_img_bin.h"
+#include "../build/antarctica_pal_bin.h"
+#include "../build/interactive_bin.h"
+#include "../build/colmap_bin.h"
+#include "../build/background_bin.h"
+#include "../build/skybox_bin.h"
 
 #include "console.hpp"
 #include "sprite_manager.hpp"
@@ -81,11 +81,11 @@ int main(void)
     sprite_renderer = &stack_sprite_renderer;
     sprite_manager  = &stack_sprite_manager;
 
-    Tileset tileset(antarctica_img_raw, colmap_raw);
+    Tileset tileset(antarctica_img_bin, colmap_bin);
 
-    TileMap interactive(&tileset, (uint16_t*)interactive_raw);
-    TileMap background(&tileset, (uint16_t*)background_raw);
-    TileMap skybox(&tileset, (uint16_t*)skybox_raw);
+    TileMap interactive(&tileset, (uint16_t*)interactive_bin);
+    TileMap background(&tileset, (uint16_t*)background_bin);
+    TileMap skybox(&tileset, (uint16_t*)skybox_bin);
 
     tilemap = &interactive;
 
@@ -93,11 +93,11 @@ int main(void)
     tile_renderer->set_tilemap(1, &interactive);
     tile_renderer->set_tilemap(2, &background);
     tile_renderer->set_tilemap(3, &skybox);
-    tile_renderer->set_palette(antarctica_pal_raw);
+    tile_renderer->set_palette(antarctica_pal_bin);
     tile_renderer->done();
 
-    sprite_renderer->set_palette(sprites_pal_raw);
-    sprite_renderer->upload((uint16_t*)sprites_img_raw);
+    sprite_renderer->set_palette(sprites_pal_bin);
+    sprite_renderer->upload((uint16_t*)sprites_img_bin);
 
     if (0) {
         console.print("SupeTux Portable Version 0.0.0\n");

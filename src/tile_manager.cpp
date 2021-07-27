@@ -10,8 +10,8 @@
 #include "tileset.hpp"
 #include "console.hpp"
 
-#include "../build/font_img_raw.h"
-#include "../build/antarctica_img_raw.h"
+#include "../build/font_img_bin.h"
+#include "../build/antarctica_img_bin.h"
 
 //#define ENABLE_DYNAMIC_TILE_ALLOCATION 1
 
@@ -34,7 +34,7 @@ TileManager::TileManager() :
     // Upload letter tileset
     for (uint8_t rom_id = 0; rom_id < 95; ++rom_id) {
         for (int i = 0; i < 32; ++i) {
-            ((uint16_t*)CHAR_BASE_ADR(0))[(MAX_VRAM_ID+rom_id)*32 + i] = ((uint16_t*)font_img_raw)[rom_id*32 + i];
+            ((uint16_t*)CHAR_BASE_ADR(0))[(MAX_VRAM_ID+rom_id)*32 + i] = ((uint16_t*)font_img_bin)[rom_id*32 + i];
         }
     }
 
@@ -105,7 +105,7 @@ void TileManager::delete_vram_tile(uint16_t vram_id)
 
 void TileManager::upload_tile(uint16_t rom_id, uint16_t vram_id)
 {
-    const uint16_t* ptr = (const uint16_t*)(antarctica_img_raw); // tileset->get_tile(rom_id);
+    const uint16_t* ptr = (const uint16_t*)(antarctica_img_bin); // tileset->get_tile(rom_id);
     for (int i = 0; i < 32; ++i) {
         ((uint16_t*)CHAR_BASE_ADR(0))[32*vram_id + i] = ptr[i + (32*rom_id)];
     }
