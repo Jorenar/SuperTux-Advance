@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_TILE_MANAGER_HPP
-#define HEADER_TILE_MANAGER_HPP
+#pragma once
 
 #include "types.hpp"
 
@@ -55,5 +54,3 @@ private:
     TileManager(const TileManager&);
     TileManager& operator =(const TileManager&);
 };
-
-#endif

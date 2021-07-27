@@ -3,13 +3,10 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_DATA_HPP
-#define HEADER_DATA_HPP
+#pragma once
 
 #include "sprite_data.hpp"
 #include "types.hpp"
 
 extern SpriteData tux_sprite_data;
 extern SpriteData mriceblock_sprite_data;
-
-#endif

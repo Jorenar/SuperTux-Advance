@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_LAYER_HPP
-#define HEADER_LAYER_HPP
+#pragma once
 
 #include "types.hpp"
 
@@ -33,5 +32,3 @@ public:
 
     // void set_blend();
 };
-
-#endif

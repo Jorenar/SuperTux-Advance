@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_TUX_HPP
-#define HEADER_TUX_HPP
+#pragma once
 
 #include <stdint.h>
 
@@ -39,5 +38,3 @@ private:
     Tux(const Tux&);
     Tux& operator =(const Tux&);
 };
-
-#endif

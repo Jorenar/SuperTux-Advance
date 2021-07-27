@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_TILE_MAP_HPP
-#define HEADER_TILE_MAP_HPP
+#pragma once
 
 #include "types.hpp"
 
@@ -40,5 +39,3 @@ private:
     TileMap(const TileMap&);
     TileMap& operator =(const TileMap&);
 };
-
-#endif

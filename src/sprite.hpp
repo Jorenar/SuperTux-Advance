@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_SPRITE_HPP
-#define HEADER_SPRITE_HPP
+#pragma once
 
 #include "sprite_data.hpp"
 #include "types.hpp"
@@ -54,5 +53,3 @@ public:
 
     void update();
 };
-
-#endif

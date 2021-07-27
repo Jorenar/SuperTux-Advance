@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_CAMERA_HPP
-#define HEADER_CAMERA_HPP
+#pragma once
 
 /** Class for handling scrolling parameter */
 class Camera {
@@ -16,5 +15,3 @@ private:
     Camera(const Camera&);
     Camera& operator =(const Camera&);
 };
-
-#endif

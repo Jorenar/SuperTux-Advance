@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_CONSOLE_HPP
-#define HEADER_CONSOLE_HPP
+#pragma once
 
 #include <stdint.h>
 
@@ -43,5 +42,3 @@ Console& operator <<(Console& c, const char* buf);
 Console& operator <<(Console& c, uint16_t num);
 
 extern Console console;
-
-#endif

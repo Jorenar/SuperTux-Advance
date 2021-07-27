@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_TYPES_HPP
-#define HEADER_TYPES_HPP
+#pragma once
 
 #include <gba_types.h>
 
@@ -15,5 +14,3 @@ typedef u32 uint32_t;
 typedef s8  int8_t;
 typedef s16 int16_t;
 typedef s32 int32_t;
-
-#endif

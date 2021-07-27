@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_SPRITE_RENDERER_HPP
-#define HEADER_SPRITE_RENDERER_HPP
+#pragma once
 
 #include "sprite.hpp"
 
@@ -35,5 +34,3 @@ private:
     SpriteRenderer(const SpriteRenderer&);
     SpriteRenderer& operator =(const SpriteRenderer&);
 };
-
-#endif

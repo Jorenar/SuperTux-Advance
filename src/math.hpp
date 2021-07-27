@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_MATH_HPP
-#define HEADER_MATH_HPP
+#pragma once
 
 #include "types.hpp"
 
@@ -53,5 +52,3 @@ public:
 };
 
 extern Math math;
-
-#endif

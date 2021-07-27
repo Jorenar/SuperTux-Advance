@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_TILE_RENDERER_HPP
-#define HEADER_TILE_RENDERER_HPP
+#pragma once
 
 #include <gba_video.h>
 
@@ -62,5 +61,3 @@ public:
 
 private:
 };
-
-#endif

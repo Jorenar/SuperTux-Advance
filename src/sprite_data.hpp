@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_SPRITE_DATA_HPP
-#define HEADER_SPRITE_DATA_HPP
+#pragma once
 
 #include "types.hpp"
 
@@ -30,5 +29,3 @@ public:
     uint16_t get_x_align() const;
     uint16_t get_y_align() const;
 };
-
-#endif

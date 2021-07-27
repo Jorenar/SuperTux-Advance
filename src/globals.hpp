@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_GLOBALS_HPP
-#define HEADER_GLOBALS_HPP
+#pragma once
 
 class TileManager;
 class TileRenderer;
@@ -21,5 +20,3 @@ extern SpriteManager*  sprite_manager;
 extern SpriteRenderer* sprite_renderer;
 
 extern TileMap* tilemap;
-
-#endif

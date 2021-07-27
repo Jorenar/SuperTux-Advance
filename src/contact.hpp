@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_CONTACT_HPP
-#define HEADER_CONTACT_HPP
+#pragma once
 
 /** */
 class Contact {
@@ -30,5 +29,3 @@ public:
     AirContact();
     void set_pos(int x, int y);
 };
-
-#endif

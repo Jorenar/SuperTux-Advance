@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_SPRITE_MANAGER_HPP
-#define HEADER_SPRITE_MANAGER_HPP
+#pragma once
 
 #include "types.hpp"
 
@@ -22,5 +21,3 @@ private:
     SpriteManager(const SpriteManager&);
     SpriteManager& operator =(const SpriteManager&);
 };
-
-#endif

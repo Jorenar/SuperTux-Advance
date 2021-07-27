@@ -3,8 +3,7 @@
  * Copyright (C) 2005 Ingo Ruhnke  <grumbel@gmx.de>
  */
 
-#ifndef HEADER_TILESET_HPP
-#define HEADER_TILESET_HPP
+#pragma once
 
 #include "types.hpp"
 
@@ -22,5 +21,3 @@ public:
 
     uint8_t get_colmap(uint16_t id) const;
 };
-
-#endif
