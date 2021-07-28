@@ -42,10 +42,8 @@ void VblankInterrupt()
 
 void vid_vsync()
 {
-    while (REG_VCOUNT >= 160) {  // wait till VDraw
-    }
-    while (REG_VCOUNT < 160) {   // wait till VBlank
-    }
+    while (REG_VCOUNT >= 160); // wait till VDraw
+    while (REG_VCOUNT <  160); // wait till VBlank
 }
 
 int main(void)
@@ -61,7 +59,7 @@ int main(void)
     // Allow Interrupts
     REG_IME = 1;
 
-    SetMode( MODE_0 | BG0_ON | BG1_ON | BG2_ON | BG3_ON | OBJ_ON );             // screen mode & background to display
+    SetMode( MODE_0 | BG0_ON | BG1_ON | BG2_ON | BG3_ON | OBJ_ON ); // screen mode & background to display
 
     // console layer
     BGCTRL[0] = BG_PRIORITY(0) | CHAR_BASE(0) | BG_MOSAIC | BG_256_COLOR | SCREEN_BASE(28) | BG_SIZE_0;
@@ -99,32 +97,15 @@ int main(void)
     sprite_renderer->set_palette(sprites_pal_bin);
     sprite_renderer->upload((uint16_t*)sprites_img_bin);
 
-    if (0) {
-        console.print("SupeTux Portable Version 0.0.0\n");
-        console.print("==============================\n");
-        console.print("\nThis program is free software;"
-                      "you can redistribute it and/or"
-                      "modify it under the terms of\n"
-                      "the GNU General Public License"
-                      "as published by the Free\n"
-                      "Software Foundation; either\n"
-                      "version 2 of the License, or\n"
-                      "(at your option) any later\n"
-                      "version. Version 0.0.0\n");
-    }
-    else {
-        console.print("SuperTux Portable Version 0.0.0\n");
-    }
+    console.print("SuperTux Advance  v0.0.0\n");
 
     Tux tux;
-
-    scanKeys();
 
     while (1) {
         tux.update();
         sprite_renderer->update();
         scanKeys();
-        //VBlankIntrWait();
+        // VBlankIntrWait();
         vid_vsync();
     }
 }
