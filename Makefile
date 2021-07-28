@@ -21,7 +21,7 @@ SOURCES	 := src
 INCLUDES :=
 DATA	 := data
 MUSIC	 :=
-GRAPHICS :=
+GRAPHICS := gfx gfx/sprites gfx/tiles
 
 # options for code generation {{{
 ARCH     := -mthumb -mthumb-interwork
@@ -52,15 +52,16 @@ LIBDIRS := $(LIBGBA)
 ifneq ($(BUILD),$(notdir $(CURDIR)))
 
 export OUTPUT  := $(CURDIR)/$(TARGET)
-export VPATH   := $(foreach dir,$(SOURCES),$(CURDIR)/$(dir))  \
-                  $(foreach dir,$(DATA),$(CURDIR)/$(dir))     \
-                  $(foreach dir,$(GRAPHICS),$(CURDIR)/$(dir))
+export VPATH   := $(foreach dir, $(SOURCES),  $(CURDIR)/$(dir))  \
+                  $(foreach dir, $(DATA),     $(CURDIR)/$(dir))     \
+                  $(foreach dir, $(GRAPHICS), $(CURDIR)/$(dir))
 export DEPSDIR := $(CURDIR)/$(BUILD)
 
-CFILES	 := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
-CPPFILES := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp)))
-SFILES	 := $(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
-BINFILES := $(foreach dir,$(DATA),   $(notdir $(wildcard $(dir)/*.bin)))
+CFILES	 := $(foreach dir, $(SOURCES),  $(notdir $(wildcard $(dir)/*.c)))
+CPPFILES := $(foreach dir, $(SOURCES),  $(notdir $(wildcard $(dir)/*.cpp)))
+SFILES	 := $(foreach dir, $(SOURCES),  $(notdir $(wildcard $(dir)/*.s)))
+BINFILES := $(foreach dir, $(DATA),     $(notdir $(wildcard $(dir)/*.bin)))
+PNGFILES := $(foreach dir, $(GRAPHICS), $(notdir $(wildcard $(dir)/*.png)))
 
 ifneq ($(strip $(MUSIC)),)
 	export AUDIOFILES := $(foreach dir,$(notdir $(wildcard $(MUSIC)/*.*)),$(CURDIR)/$(MUSIC)/$(dir))
@@ -69,7 +70,7 @@ endif
 
 export LD := $(CXX)
 
-export OFILES_BIN     := $(addsuffix .o,$(BINFILES))
+export OFILES_BIN     := $(addsuffix .o,$(BINFILES)) $(PNGFILES:.png=.o)
 export OFILES_SOURCES := $(CPPFILES:.cpp=.o) $(CFILES:.c=.o) $(SFILES:.s=.o)
 export OFILES         := $(OFILES_BIN) $(OFILES_SOURCES)
 export HFILES         := $(addsuffix .h,$(subst .,_,$(BINFILES)))
@@ -104,10 +105,19 @@ $(OFILES_SOURCES): $(HFILES)
 soundbank.bin soundbank.h : $(AUDIOFILES)
 	@mmutil $^ -osoundbank.bin -hsoundbank.h
 
+# rules {{{
+
+# This rule creates assembly source files using grit
+%.s %.h	: %.png
+	@echo $(notdir $<)
+	@grit $< -fts -o$*
+
 # This rule links in binary data with the .bin extension
 %.bin.o	%_bin.h : %.bin
 	@echo $(notdir $<)
 	@$(bin2o)
+
+# }}}
 
 -include $(DEPSDIR)/*.d
 

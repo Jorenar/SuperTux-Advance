@@ -15,11 +15,9 @@
 #include "math.hpp"
 
 // Data for use in the game
-#include "../build/sprites_img_bin.h"
-#include "../build/sprites_pal_bin.h"
+#include "../build/sprites.h"
 
-#include "../build/antarctica_img_bin.h"
-#include "../build/antarctica_pal_bin.h"
+#include "../build/antarctica.h"
 #include "../build/interactive_bin.h"
 #include "../build/colmap_bin.h"
 #include "../build/background_bin.h"
@@ -79,7 +77,7 @@ int main(void)
     sprite_renderer = &stack_sprite_renderer;
     sprite_manager  = &stack_sprite_manager;
 
-    Tileset tileset(antarctica_img_bin, colmap_bin);
+    Tileset tileset(antarcticaTiles, colmap_bin);
 
     TileMap interactive(&tileset, (uint16_t*)interactive_bin);
     TileMap background(&tileset, (uint16_t*)background_bin);
@@ -91,11 +89,11 @@ int main(void)
     tile_renderer->set_tilemap(1, &interactive);
     tile_renderer->set_tilemap(2, &background);
     tile_renderer->set_tilemap(3, &skybox);
-    tile_renderer->set_palette(antarctica_pal_bin);
+    tile_renderer->set_palette(antarcticaPal);
     tile_renderer->done();
 
-    sprite_renderer->set_palette(sprites_pal_bin);
-    sprite_renderer->upload((uint16_t*)sprites_img_bin);
+    sprite_renderer->set_palette(spritesPal);
+    sprite_renderer->upload((uint16_t*)spritesTiles);
 
     console.print("SuperTux Advance  v0.0.0\n");
 
