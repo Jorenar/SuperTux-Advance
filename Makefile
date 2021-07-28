@@ -16,11 +16,11 @@ include $(DEVKITARM)/gba_rules
 # GRAPHICS is a list of directories containing files to be processed by grit
 #---------------------------------------------------------------------------------
 TARGET   := supertux
-BUILD	 := build
-SOURCES	 := src
+BUILD    := build
+SOURCES  := src
 INCLUDES :=
-DATA	 := data
-MUSIC	 :=
+DATA     := data
+MUSIC    :=
 GRAPHICS := gfx gfx/sprites gfx/tiles
 
 # options for code generation {{{
@@ -52,14 +52,14 @@ LIBDIRS := $(LIBGBA)
 ifneq ($(BUILD),$(notdir $(CURDIR)))
 
 export OUTPUT  := $(CURDIR)/$(TARGET)
-export VPATH   := $(foreach dir, $(SOURCES),  $(CURDIR)/$(dir))  \
-                  $(foreach dir, $(DATA),     $(CURDIR)/$(dir))     \
+export VPATH   := $(foreach dir, $(SOURCES),  $(CURDIR)/$(dir)) \
+                  $(foreach dir, $(DATA),     $(CURDIR)/$(dir)) \
                   $(foreach dir, $(GRAPHICS), $(CURDIR)/$(dir))
 export DEPSDIR := $(CURDIR)/$(BUILD)
 
-CFILES	 := $(foreach dir, $(SOURCES),  $(notdir $(wildcard $(dir)/*.c)))
+CFILES   := $(foreach dir, $(SOURCES),  $(notdir $(wildcard $(dir)/*.c)))
 CPPFILES := $(foreach dir, $(SOURCES),  $(notdir $(wildcard $(dir)/*.cpp)))
-SFILES	 := $(foreach dir, $(SOURCES),  $(notdir $(wildcard $(dir)/*.s)))
+SFILES   := $(foreach dir, $(SOURCES),  $(notdir $(wildcard $(dir)/*.s)))
 BINFILES := $(foreach dir, $(DATA),     $(notdir $(wildcard $(dir)/*.bin)))
 PNGFILES := $(foreach dir, $(GRAPHICS), $(notdir $(wildcard $(dir)/*.png)))
 
@@ -79,7 +79,7 @@ export INCLUDE := $(foreach dir,$(INCLUDES),-iquote $(CURDIR)/$(dir)) \
                   $(foreach dir,$(LIBDIRS),-I$(dir)/include) \
                   -I$(CURDIR)/$(BUILD)
 
-export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib)
+export LIBPATHS := $(foreach dir,$(LIBDIRS),-L$(dir)/lib)
 
 #------------------------------------------------------------------------------
 
@@ -105,19 +105,17 @@ $(OFILES_SOURCES): $(HFILES)
 soundbank.bin soundbank.h : $(AUDIOFILES)
 	@mmutil $^ -osoundbank.bin -hsoundbank.h
 
-# rules {{{
 
 # This rule creates assembly source files using grit
-%.s %.h	: %.png
+%.s %.h : %.png
 	@echo $(notdir $<)
 	@grit $< -fts -o$*
 
 # This rule links in binary data with the .bin extension
-%.bin.o	%_bin.h : %.bin
+%.bin.o %_bin.h : %.bin
 	@echo $(notdir $<)
 	@$(bin2o)
 
-# }}}
 
 -include $(DEPSDIR)/*.d
 
