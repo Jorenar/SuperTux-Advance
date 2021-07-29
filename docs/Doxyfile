@@ -1,4 +1,4 @@
-PROJECT_NAME           = "SuperTux Advanced"
+PROJECT_NAME           = "SuperTux Advance"
 
 USE_MDFILE_AS_MAINPAGE = ../README.md
 
