@@ -16,11 +16,10 @@ class Tux {
 private:
     Sprite* sprite;
 
-    // Contacts which handle Tuxs movement/collision detection on the
-    // tilemap
+    // Contacts which handle Tuxs movement/collision detection on the tilemap
     Contact*      contact;
     GroundContact ground_contact;
-    AirContact air_contact;
+    AirContact    air_contact;
 
     int x_pos;
     int y_pos;

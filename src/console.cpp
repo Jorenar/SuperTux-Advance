@@ -19,13 +19,6 @@ Console::Console() :
 
 Console::~Console() {}
 
-void Console::print(const char* buf)
-{
-    while (*buf) {
-        putchar(*buf++);
-    }
-}
-
 void Console::clear()
 {
     for (uint16_t i = 0; i < 32*32; ++i) {
@@ -80,6 +73,13 @@ void Console::moveto(uint8_t x, uint8_t y)
 {
     x_pos = x % width;
     y_pos = y % height;
+}
+
+void Console::print(const char* buf)
+{
+    while (*buf) {
+        putchar(*buf++);
+    }
 }
 
 void Console::print(uint16_t num)

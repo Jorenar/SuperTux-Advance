@@ -21,7 +21,7 @@ SOURCES  := src
 INCLUDES :=
 DATA     := data
 MUSIC    :=
-GRAPHICS := gfx gfx/sprites gfx/tiles
+GRAPHICS := data/images $(wildcard data/images/*)
 
 # options for code generation {{{
 ARCH     := -mthumb -mthumb-interwork

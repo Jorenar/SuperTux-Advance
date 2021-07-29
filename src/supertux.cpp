@@ -11,25 +11,23 @@
 #include <gba_video.h>
 #include <fade.h>
 
+#include "console.hpp"
 #include "globals.hpp"
 #include "math.hpp"
-
-// Data for use in the game
-#include "../build/sprites.h"
-
-#include "../build/antarctica.h"
-#include "../build/interactive_bin.h"
-#include "../build/colmap_bin.h"
-#include "../build/background_bin.h"
-#include "../build/skybox_bin.h"
-
-#include "console.hpp"
 #include "sprite_manager.hpp"
 #include "sprite_renderer.hpp"
 #include "tile_map.hpp"
 #include "tile_renderer.hpp"
 #include "tileset.hpp"
 #include "tux.hpp"
+
+// Data for use in the game
+#include "../build/sprites.h"
+#include "../build/antarctica.h"
+#include "../build/interactive_bin.h"
+#include "../build/colmap_bin.h"
+#include "../build/background_bin.h"
+#include "../build/skybox_bin.h"
 
 unsigned int frame;
 

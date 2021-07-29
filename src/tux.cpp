@@ -19,23 +19,23 @@ Tux::Tux() :
     sprite(sprite_renderer->create(tux_sprite_data)),
     contact(&air_contact)
 {
-    x_pos = 360;
-    y_pos = 150;
+    x_pos = 100;
+    y_pos = 400;
 }
 
 Tux::~Tux() {}
 
 void Tux::update()
 {
-    sprite->update();
+    /* sprite->update(); */
 
-    u16 keys = keysHeld();
+    auto keys = keysHeld();
     int speed = 2;
 
-    int last_x = x_pos;
-    int last_y = y_pos;
+    auto last_x = x_pos;
+    auto last_y = y_pos;
 
-    uint8_t col = tilemap->get_colmap(x_pos/8, y_pos/8 + 1);
+    auto col = tilemap->get_colmap(x_pos/8, y_pos/8 + 1);
 
     if (keys & KEY_L) {
         if (keys & KEY_UP) {

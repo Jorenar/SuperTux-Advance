@@ -10,6 +10,7 @@
 #include <gba_video.h>
 
 #include "tile_manager.hpp"
+#include "layer.hpp"
 
 class Tileset;
 class TileMap;
