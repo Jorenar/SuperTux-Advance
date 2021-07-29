@@ -1,0 +1,19 @@
+PROJECT_NAME           = "SuperTux Advanced"
+
+USE_MDFILE_AS_MAINPAGE = ../README.md
+
+REPEAT_BRIEF           = NO
+STRIP_FROM_PATH        = ..
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+
+INPUT                  = ../README.md ../src
+
+SOURCE_BROWSER         = YES
+ALPHABETICAL_INDEX     = NO
+GENERATE_LATEX         = NO
+HAVE_DOT               = YES
+UML_LOOK               = YES
+TEMPLATE_RELATIONS     = YES
