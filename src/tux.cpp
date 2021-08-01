@@ -27,9 +27,23 @@ Tux::~Tux() {}
 
 void Tux::update()
 {
-    /* sprite->update(); */
-
     auto keys = keysHeld();
+
+    if (keys & KEY_A) {
+        sprite->setFrame(4);
+    }
+    else if (keys & KEY_LEFT || keys & KEY_RIGHT) {
+        if (keys & KEY_B) {
+            sprite->update(1);
+        }
+        else {
+            sprite->update();
+        }
+    }
+    else {
+        sprite->setFrame(2);
+    }
+
     int speed = 2;
 
     auto last_x = x_pos;
@@ -78,7 +92,7 @@ void Tux::update()
     scroll_x = sprite->get_x() - 120;
     scroll_y = sprite->get_y() - 100;
 
-    tile_renderer->set_tilemap_offset(1, scroll_x, scroll_y);
+    tile_renderer->set_tilemap_offset(1, scroll_x,   scroll_y);
     tile_renderer->set_tilemap_offset(2, scroll_x/2, scroll_y/2);
     tile_renderer->set_tilemap_offset(3, scroll_x/4, scroll_y/4);
 

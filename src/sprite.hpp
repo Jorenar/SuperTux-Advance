@@ -51,4 +51,6 @@ public:
     bool get_vflip() const { return vflip; }
 
     void update();
+    void update(int);
+    void setFrame(int foo);
 };

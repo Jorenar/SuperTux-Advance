@@ -19,6 +19,20 @@ void Sprite::set_pos(int x_, int y_)
 
 void Sprite::update()
 {
+    static int foo = 0;
+    if (++foo > 2) {
+        foo = 0;
+        update(1);
+    }
+}
+
+void Sprite::update(int)
+{
     frame += 1;
     frame %= data.get_frames();
+}
+
+void Sprite::setFrame(int foo)
+{
+    frame = foo;
 }

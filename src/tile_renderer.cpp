@@ -21,8 +21,7 @@ TileRenderer::TileRenderer()
     layers[1] = Layer(1);
     layers[2] = Layer(2);
 
-    // This layer is reserved for the Console, see console.hpp for details
-    layers[3] = Layer(3);
+    layers[3] = Layer(3); //< This layer is reserved for the Console, see @f console.hpp for details
 }
 
 TileRenderer::~TileRenderer() {}
@@ -85,8 +84,7 @@ void TileRenderer::set_tilemap_offset(uint8_t layer_num, int16_t x_offset, int16
                 uint16_t& tile = layer.vram[(y%32) * 32 + (x%32)];
 
                 tile_manager->delete_vram_tile(tile);
-                tile = tile_manager->create_vram_tile(layer.tilemap->get_data()
-                                                      [y * layer.tilemap->get_width() + x]);
+                tile = tile_manager->create_vram_tile(layer.tilemap->get_data()[y * layer.tilemap->get_width() + x]);
             }
         }
 
@@ -96,13 +94,11 @@ void TileRenderer::set_tilemap_offset(uint8_t layer_num, int16_t x_offset, int16
                 uint16_t& tile = layer.vram[(y%32) * 32 + (x%32)];
 
                 tile_manager->delete_vram_tile(tile);
-                tile = tile_manager->create_vram_tile(layer.tilemap->get_data()
-                                                      [y * layer.tilemap->get_width() + x]);
+                tile = tile_manager->create_vram_tile(layer.tilemap->get_data()[y * layer.tilemap->get_width() + x]);
             }
         }
 
-        // FIXME: The regions of vertical and horizontal refresh may
-        // overlap, could be optimized further
+        // FIXME: The regions of vertical and horizontal refresh may overlap, could be optimized further
 
         // FIXME: Some off-by-one bug seems to be hiding here, diagonal scrolling causes slight trouble
     }
