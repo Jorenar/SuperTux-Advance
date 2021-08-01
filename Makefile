@@ -19,7 +19,7 @@ TARGET   := supertux
 BUILD    := build
 SOURCES  := src
 INCLUDES :=
-DATA     := data
+DATA     := data data/levels
 MUSIC    :=
 GRAPHICS := data/images $(wildcard data/images/*)
 
@@ -91,7 +91,7 @@ $(BUILD):
 
 clean:
 	@echo clean ...
-	@rm -fr $(BUILD) $(TARGET).elf $(TARGET).gba
+	@rm -fr $(BUILD) $(TARGET).elf $(TARGET).gba $(TARGET).sav
 
 else
 
