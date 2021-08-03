@@ -82,7 +82,19 @@ void Tux::update()
         sprite->set_hflip(false);
     }
 
-    if (tilemap->get_colmap(x_pos/8, y_pos/8 + 0) != 0) {
+    if (tilemap->get_colmap(x_pos/8, y_pos/8) != 0) {
+        if (tilemap->get_colmap(x_pos/8, last_y/8) != 0) {
+            x_pos = last_x;
+        }
+        else if (tilemap->get_colmap(last_x/8, last_y/8) != 0) {
+            y_pos = last_y;
+        }
+        else {
+            x_pos = last_x;
+            y_pos = last_y;
+        }
+    }
+    if (tilemap->get_colmap(x_pos/8, (y_pos/8) - 3) != 0) {
         x_pos = last_x;
         y_pos = last_y;
     }
