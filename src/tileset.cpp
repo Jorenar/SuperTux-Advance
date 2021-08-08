@@ -4,10 +4,10 @@
  */
 
 #include "tileset.hpp"
+#include "console.hpp"
 
-Tileset::Tileset(const void* data_, const void* colmap_) :
-    data(static_cast<const uint16_t*>(data_)),
-    colmap(static_cast<const uint8_t*>(colmap_))
+Tileset::Tileset(const void* data_) :
+    data(static_cast<const uint16_t*>(data_))
 {}
 
 Tileset::~Tileset() {}

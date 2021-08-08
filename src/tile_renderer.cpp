@@ -136,6 +136,6 @@ void TileRenderer::copy_tilemap(uint8_t layer_num)
 void TileRenderer::set_palette(const void* pal)
 {
     for (uint16_t i = 0; i < 256; ++i) {
-        BG_COLORS[i] = ((u16*)pal)[i];
+        BG_COLORS[i] = ((uint16_t*)pal)[i];
     }
 }

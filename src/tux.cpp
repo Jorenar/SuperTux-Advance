@@ -14,6 +14,7 @@
 #include "sprite_renderer.hpp"
 #include "tile_map.hpp"
 #include "tile_renderer.hpp"
+#include "level.hpp"
 
 Tux::Tux() :
     sprite(sprite_renderer->create(tux_sprite_data)),
@@ -49,7 +50,7 @@ void Tux::update()
     auto last_x = x_pos;
     auto last_y = y_pos;
 
-    auto col = tilemap->get_colmap(x_pos/8, y_pos/8 + 1);
+    auto col = level->get_colmap(x_pos/8, y_pos/8 + 1);
 
     if (keys & KEY_L) {
         if (keys & KEY_UP) {
@@ -82,11 +83,11 @@ void Tux::update()
         sprite->set_hflip(false);
     }
 
-    if (tilemap->get_colmap(x_pos/8, y_pos/8) != 0) {
-        if (tilemap->get_colmap(x_pos/8, last_y/8) != 0) {
+    if (level->get_colmap(x_pos/8, y_pos/8) != 0) {
+        if (level->get_colmap(x_pos/8, last_y/8) != 0) {
             x_pos = last_x;
         }
-        else if (tilemap->get_colmap(last_x/8, last_y/8) != 0) {
+        else if (level->get_colmap(last_x/8, last_y/8) != 0) {
             y_pos = last_y;
         }
         else {
@@ -94,7 +95,7 @@ void Tux::update()
             y_pos = last_y;
         }
     }
-    if (tilemap->get_colmap(x_pos/8, (y_pos/8) - 3) != 0) {
+    if (level->get_colmap(x_pos/8, (y_pos/8) - 3) != 0) {
         x_pos = last_x;
         y_pos = last_y;
     }

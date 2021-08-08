@@ -11,4 +11,4 @@ TileRenderer* tile_renderer = 0;
 SpriteManager*  sprite_manager  = 0;
 SpriteRenderer* sprite_renderer = 0;
 
-TileMap* tilemap = 0;
+Level* level = 0;

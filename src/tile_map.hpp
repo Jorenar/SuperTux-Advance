@@ -12,28 +12,20 @@ class Tileset;
 /** */
 class TileMap {
 private:
-    Tileset* tileset;
-
-    /** Width of the TileMap */
     uint16_t width;
-
-    /** Height of the TileMap */
     uint16_t height;
 
-    /** Pointer to the tilemap in ROM */
-    uint16_t* tilemap;
+    uint16_t* tilemap; //< Pointer to the tilemap in ROM
 
 public:
-    TileMap(Tileset* tileset, uint16_t* raw_data);
+    TileMap(uint16_t* raw_data);
     ~TileMap();
 
     inline uint16_t* get_data()   const { return tilemap; }
-
     inline uint16_t  get_width()  const { return width; }
-
     inline uint16_t  get_height() const { return height; }
 
-    uint8_t get_colmap(int x, int y) const;
+    inline uint16_t get(int x, int y) const { return tilemap[y*width + x]; }
 
 private:
     TileMap(const TileMap&);

@@ -16,18 +16,17 @@
 #include "math.hpp"
 #include "sprite_manager.hpp"
 #include "sprite_renderer.hpp"
-#include "tile_map.hpp"
 #include "tile_renderer.hpp"
 #include "tileset.hpp"
 #include "tux.hpp"
 
+#include "level.hpp"
+
 // Data for use in the game
-#include "../build/sprites.h"
+#include "../build/level1_bin.h"
 #include "../build/antarctica.h"
-#include "../build/interactive_bin.h"
-#include "../build/colmap_bin.h"
-#include "../build/background_bin.h"
-#include "../build/skybox_bin.h"
+
+#include "../build/sprites.h"
 
 unsigned int frame;
 
@@ -75,20 +74,10 @@ int main(void)
     sprite_renderer = &stack_sprite_renderer;
     sprite_manager  = &stack_sprite_manager;
 
-    Tileset tileset(antarcticaTiles, colmap_bin);
 
-    TileMap interactive(&tileset, (uint16_t*)interactive_bin);
-    TileMap background(&tileset, (uint16_t*)background_bin);
-    TileMap skybox(&tileset, (uint16_t*)skybox_bin);
-
-    tilemap = &interactive;
-
-    tile_manager->set_tileset(&tileset);
-    tile_renderer->set_tilemap(1, &interactive);
-    tile_renderer->set_tilemap(2, &background);
-    tile_renderer->set_tilemap(3, &skybox);
-    tile_renderer->set_palette(antarcticaPal);
-    tile_renderer->done();
+    Tileset jileset(antarcticaTiles);
+    Level level1{ (uint16_t*)level1_bin, antarcticaPal, &tileset };
+    level = &level1;
 
     sprite_renderer->set_palette(spritesPal);
     sprite_renderer->upload((uint16_t*)spritesTiles);

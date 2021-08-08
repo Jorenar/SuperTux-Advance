@@ -11,7 +11,7 @@ class TileRenderer;
 class SpriteManager;
 class SpriteRenderer;
 
-class TileMap;
+class Level;
 
 extern TileManager*  tile_manager;
 extern TileRenderer* tile_renderer;
@@ -19,4 +19,4 @@ extern TileRenderer* tile_renderer;
 extern SpriteManager*  sprite_manager;
 extern SpriteRenderer* sprite_renderer;
 
-extern TileMap* tilemap;
+extern Level* level;

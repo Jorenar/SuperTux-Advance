@@ -1,2 +1,2 @@
 lvlEdit : lvledit.c
-	$(CC) -o $@ $< -lSDL2
+	$(CC) -g -o $@ $< -lSDL2
