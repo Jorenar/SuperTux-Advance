@@ -13,8 +13,7 @@ private:
     const uint16_t* data;
     const uint8_t*  colmap;
 public:
-    Tileset();
-    Tileset(const void* colmap);
+    Tileset(const uint16_t* colmap);
     ~Tileset();
 
     /** Returns a pointer to the start of tile \a id */

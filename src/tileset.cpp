@@ -6,9 +6,7 @@
 #include "tileset.hpp"
 #include "console.hpp"
 
-Tileset::Tileset(const void* data_) :
-    data(static_cast<const uint16_t*>(data_))
-{}
+Tileset::Tileset(const uint16_t* data_) : data(data_) {}
 
 Tileset::~Tileset() {}
 

@@ -16,13 +16,15 @@ class Level {
     TileMap background;
     TileMap skybox;
 
+    Tileset tileset;
+
     static inline uint16_t* ptrToNextTileMap(TileMap& x)
     {
         return x.get_data() + x.get_width() * x.get_height();
     }
 
 public:
-    Level(uint16_t* raw, const uint16_t* pal, Tileset* tileset);
+    Level(uint16_t* raw, const uint16_t* pal, const uint16_t* tiles);
     ~Level();
 
     inline uint8_t get_colmap(int x, int y) const

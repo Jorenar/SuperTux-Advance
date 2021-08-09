@@ -9,7 +9,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "console.hpp"
 #include "globals.hpp"
 #include "math.hpp"
 #include "tile_map.hpp"

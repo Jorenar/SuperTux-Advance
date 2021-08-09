@@ -75,8 +75,7 @@ int main(void)
     sprite_manager  = &stack_sprite_manager;
 
 
-    Tileset jileset(antarcticaTiles);
-    Level level1{ (uint16_t*)level1_bin, antarcticaPal, &tileset };
+    Level level1{ (uint16_t*)level1_bin, antarcticaPal, antarcticaTiles };
     level = &level1;
 
     sprite_renderer->set_palette(spritesPal);

@@ -109,7 +109,7 @@ soundbank.bin soundbank.h : $(AUDIOFILES)
 # This rule creates assembly source files using grit
 %.s %.h : %.png
 	@echo $(notdir $<)
-	@grit $< -fts -o$*
+	@grit $< -fts -gt -p -gu16 -o$*
 
 # This rule links in binary data with the .bin extension
 %.bin.o %_bin.h : %.bin
