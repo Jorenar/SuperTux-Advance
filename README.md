@@ -9,4 +9,4 @@ SuperTux Advance is a version of SuperTux for the Nintendo Gameboy Advance
 
 ---
 
-Check also another game of the same title: [SuperTux Advance (_for PC_)](https://supertuxadvance.github.io/) by [Kelvin Shadewing](https://github.com/KelvinShadewing)
+Check also a PC game (with GBA astetics) of the same title: [SuperTux Advance](https://supertuxadvance.github.io/) by [Kelvin Shadewing](https://github.com/KelvinShadewing)
