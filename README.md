@@ -6,3 +6,7 @@ SuperTux Advance
 [![CodeFactor](https://www.codefactor.io/repository/github/jorengarenar/supertux-advance/badge/master)](https://www.codefactor.io/repository/github/jorengarenar/supertux-advance/overview/master)
 
 SuperTux Advance is a version of SuperTux for the Nintendo Gameboy Advance
+
+---
+
+Check also another game of the same title: [SuperTux Advance _for Windows_](https://supertuxadvance.github.io/) by [Kelvin Shadewing](https://github.com/KelvinShadewing)
