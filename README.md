@@ -1,12 +1,8 @@
 SuperTux Advance
 ================
 
-[![Build Status](https://app.travis-ci.com/Jorengarenar/SuperTux-Advance.svg?branch=master)](https://app.travis-ci.com/github/Jorengarenar/SuperTux-Advance)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/0694455e22274394bdb1120f50e8b1f8)](https://www.codacy.com/gh/Jorengarenar/SuperTux-Advance/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Jorengarenar/SuperTux-Advance&amp;utm_campaign=Badge_Grade)
-[![CodeFactor](https://www.codefactor.io/repository/github/jorengarenar/supertux-advance/badge/master)](https://www.codefactor.io/repository/github/jorengarenar/supertux-advance/overview/master)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/0694455e22274394bdb1120f50e8b1f8)](https://app.codacy.com/gh/Jorenar/SuperTux-Advance/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![CodeFactor](https://www.codefactor.io/repository/github/jorenar/supertux-advance/badge)](https://www.codefactor.io/repository/github/jorenar/supertux-advance)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Jorenar_SuperTux-Advance&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Jorenar_SuperTux-Advance)
 
 SuperTux Advance is a version of SuperTux for the Nintendo Gameboy Advance
-
----
-
-Check also a PC game (with GBA astetics) of the same title: [SuperTux Advance](https://supertuxadvance.github.io/) by [Kelvin Shadewing](https://github.com/KelvinShadewing)
