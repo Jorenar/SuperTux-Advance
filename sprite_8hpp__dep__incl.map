@@ -1,0 +1,8 @@
+<map id="src/sprite.hpp" name="src/sprite.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="127,5,238,32"/>
+<area shape="rect" id="node2" href="$sprite_8cpp.html" title=" " alt="" coords="47,80,156,107"/>
+<area shape="rect" id="node3" href="$sprite__renderer_8hpp.html" title=" " alt="" coords="180,80,351,107"/>
+<area shape="rect" id="node4" href="$sprite__renderer_8cpp.html" title=" " alt="" coords="5,155,176,181"/>
+<area shape="rect" id="node5" href="$supertux_8cpp.html" title=" " alt="" coords="201,155,330,181"/>
+<area shape="rect" id="node6" href="$tux_8cpp.html" title=" " alt="" coords="355,155,448,181"/>
+</map>

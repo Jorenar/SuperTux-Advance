@@ -1,0 +1,5 @@
+<map id="Level" name="Level">
+<area shape="rect" id="node1" title=" " alt="" coords="61,307,217,457"/>
+<area shape="rect" id="node2" href="$classTileset.html" title=" " alt="" coords="5,42,128,178"/>
+<area shape="rect" id="node3" href="$classTileMap.html" title=" " alt="" coords="153,5,269,215"/>
+</map>
